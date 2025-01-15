@@ -1,0 +1,20 @@
+.table-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  ::ng-deep div#cdk-overlay-0 {
+    position: fixed !important;
+    z-index: 1051;
+  }
+  
+  ::ng-deep .mat-dialog-container {
+    position: fixed !important;  /* Ensures the dialog is fixed in place */
+    z-index: 9999 !important;    /* Makes sure the dialog is on top */
+  }
+  
+  

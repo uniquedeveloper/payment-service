@@ -1,0 +1,19 @@
+<h3 mat-dialog-title>Item Details</h3>
+<div mat-dialog-content>
+ 
+    <p><strong>Name:</strong>{{element.payee_first_name}} {{element.payee_last_name}}</p>
+    <p><strong>Email:</strong> {{element.payee_email}} </p>
+    <p><strong>Address:</strong>{{element.payee_address_line_1}} {{element.payee_address_line_2}}</p>
+    <p><strong>City:</strong> {{element.payee_city}}, {{element.payee_postal_code}} </p>
+    <p><strong>Province:</strong> {{element.payee_province_or_state}}</p>
+    <p><strong>Country:</strong>{{element.payee_country}}</p>
+    <p><strong>Phone:</strong> {{element.payee_phone_number}} </p>
+    <p><strong>Payment Due on:</strong>{{element.payee_due_date}}</p>
+    <p><strong>Payment Status:</strong>{{element.payee_payment_status}}</p>
+    <p><strong>Due Amount:</strong>{{element.total_due}}</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Close</button>
+</div>
+

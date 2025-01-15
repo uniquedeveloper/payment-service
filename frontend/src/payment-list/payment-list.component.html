@@ -1,0 +1,54 @@
+<div><!-- Show the app-display-info component only when isViewing is true -->
+  <app-item-dialog *ngIf="isViewing else listview" (closeInfo)="closeDisplayInfo()"></app-item-dialog>
+</div>
+<ng-template #listview>
+  <div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Columns" #input>
+      </mat-form-field>
+      &nbsp;
+      <button mat-raised-button color="primary">Add New Payment</button>
+      
+    </div>
+    
+    <div class="table-container">
+      <table mat-table matSort multiTemplateDataRows matSortDisableClear="true"
+       [dataSource]="dataSource" matSortActive="element" matSortDirection="asc"  class="mat-elevation-z8">
+  
+        <!-- Dynamically generate columns -->
+        <ng-container *ngFor="let column of displayedColumns; let i = index">
+          <ng-container *ngIf="column !== 'action'" [matColumnDef]="column">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column | titlecase }} </th>
+            <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+          </ng-container>
+        </ng-container>
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="toggleView(element)">View</button>
+            <button mat-raised-button color="primary" (click)="toggleEdit(element)">Edit</button>
+            <button mat-raised-button color="warn" (click)="deletePaymentRecord(element)">Delete</button>
+          </td>
+        </ng-container>
+      
+        <!-- Table Header and Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+  
+      <!-- Paginator -->
+      <mat-paginator 
+        [length]="dataSource.data.length" 
+        [pageSize]="5" 
+        [pageSizeOptions]="[5, 10, 25, 100]" 
+        [showFirstLastButtons]="true" 
+        *ngIf="dataSource.data.length > 0"></mat-paginator>
+    </div>
+  
+  </div>
+</ng-template>
+

@@ -1,0 +1,15 @@
+.table-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  mat-paginator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  

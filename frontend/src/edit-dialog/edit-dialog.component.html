@@ -1,0 +1,30 @@
+<form class="payment-form">
+    <mat-form-field class="form-field">
+      <mat-label>Payment Due on</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="element.payee_due_date" placeholder="Choose a date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field  class="form-field">
+      <mat-label>Payment Status</mat-label>
+      <mat-select [(ngModel)]="element.payee_payment_status">
+        <mat-option value="pending">Pending</mat-option>
+        <mat-option value="paid">Paid</mat-option>
+        <mat-option value="overdue">Overdue</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Due Amount</mat-label>
+      <input matInput [(ngModel)]="element.total_due" placeholder="Enter Amount" />
+    </mat-form-field>
+  
+    <div class="form-actions">
+        <!-- Save Changes Button (if editing) -->
+      <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+      
+      <!-- Cancel Edit Button (if editing) -->
+      <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>   

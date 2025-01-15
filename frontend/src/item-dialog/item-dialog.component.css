@@ -1,0 +1,96 @@
+/* Container for the form */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for individual mat-form-fields */
+.form-field {
+  margin-bottom: 20px;
+}
+
+/* Styling for the action buttons */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Make buttons look more compact */
+button {
+  min-width: 120px;
+}
+
+/* Custom input field styling */
+mat-form-field {
+  font-size: 14px;
+}
+
+/* Default state for mat-input (fields are not yet focused) */
+mat-form-field .mat-form-field-appearance-fill .mat-input-element {
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #ddd; /* Default border color */
+}
+
+/* Focus state for mat-input fields */
+mat-form-field .mat-form-field-appearance-fill.mat-focused .mat-input-element {
+  box-shadow: 0 0 5px rgba(24, 144, 255, 0.6);
+  border: 1px solid #1890ff; /* Border color on focus */
+}
+
+/* Default state for mat-select */
+mat-select .mat-select-value {
+  font-size: 14px;
+  padding: 8px; /* Padding to make it look consistent */
+}
+
+/* Custom hover and active states for buttons */
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Styling for placeholder text */
+mat-label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Ensure the input field's background and borders are styled correctly on load */
+mat-form-field.mat-focused .mat-input-element {
+  border-color: #1890ff !important;  /* Add this to force border color */
+}
+
+/* Force style on mat-select dropdown */
+mat-select .mat-select-arrow {
+  color: #1890ff; /* Style the arrow icon */
+}
+
+/* Fixing issue where material form control takes time to load styles */
+::ng-deep .mat-form-field {
+  background-color: #ffffff;  /* Default background */
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ensure placeholder styling is applied without focus */
+mat-form-field .mat-label {
+  color: #888; /* Light color for label */
+}
+
+mat-form-field input {
+  font-size: 14px;
+}
